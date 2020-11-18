@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greeting-App</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
     <div class="sidebar">
-        <ul class="sidebarList">
-            <li ><img src="./assets/list.png"> List</li>
-            <li><img src="./assets/Add.png">Add</li>
-            <li><img src="./assets/edit.png">Update</li>
-            <li><img src="./assets/delete.png">Delete</li>
+        <ul class="main">
+            <li><a onclick="getGreeting()"> <img src="./assets/list.png"> List</a></li>
+            <li><a onclick="createGreetingForm()"><img src="./assets/Add.png"> add</a></li>
+            <li><a onclick="editGreetingForm()"><img src="./assets/edit.png"> Edit</a></li>
+            <li><a onclick="deleteGreetingForm()"><img src="./assets/delete.png"> Delete</a></li>
         </ul>
     </div>
     <header>
         <div class="topbar">
-            <h2 class = "greeting">Greeting App</h2>
-            <ul class="topbarList">
+            <h3>Greeting-App </h3>
+            <ul class="main">
                 <li><img src = "./assets/notification.png"></li>
                 <li><img src = "./assets/tools.png"></li>
                 <li><img src = "./assets/setting.png"></li>
@@ -27,6 +27,58 @@
             </ul>
         </div>
     </header>
-    <h2 class="layout">Basic Layout</h2>
+    <h2 class="layoutTitle">
+        Basic panels layout
+    </h2>>
+
+
+    <div class="form-popup1" id="createGreeting">
+        <form class="form-container">
+            <h3>Create Greeting</h3>
+
+            <label for="name"><b>Name:</b></label>
+            <input type="text" placeholder="Enter Name">
+
+            <label for="message"><b>Message:</b></label>
+            <input type="text" placeholder="Enter Message">
+
+            <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <div class="form-popup2" id="editGreeting">
+        <form class="form-container">
+            <h3>Edit Greeting</h3>
+
+            <label for="GreetingID"><b>GreetingID:</b></label>
+            <input type="text" placeholder="Enter GreetingID" >
+
+            <label for="name"><b>Name:</b></label>
+            <input type="text" placeholder="Enter Name">
+
+            <label for="message"><b>Message:</b></label>
+            <input type="text" placeholder="Enter Message">
+
+            <button type="submit" class="btn" onclick="putGreeting()">Update Greeting</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <div class="form-popup3" id="deleteGreeting">
+        <form class="form-container">
+            <h3>Delete Greeting</h3>
+
+            <label for="GreetingID"><b>GreetingID:</b></label>
+            <input type="text" placeholder="Enter GreetingID">
+
+            <button type="submit" onclick="deleteGreeting()" class="btn">Delete Greeting</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <script src='./src/app.js'> </script>
+
 </body>
+
 </html>
