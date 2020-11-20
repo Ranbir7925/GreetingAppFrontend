@@ -55,11 +55,11 @@
     margin-left: 200px;
     margin-top: 15px;
 }
-.topbar img{
+.topbar .main img{
     width: 20;
     height: 20;
 }
-.form-popup1 {
+/* .form-popup1 {
   position: fixed;
   top: 200px;
   left: 500px;
@@ -81,4 +81,64 @@
   max-width: 320px;
   padding: 10px;
   background-color: white;
+} */
+
+.form-popup{
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+ .form-popup h3{
+     margin: 0 0 30px;
+     padding: 0;
+     color: rgb(48, 39, 39);
+     text-align: center;
+ }
+ .box{
+    position: relative;
+ }
+ .form-popup .box input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.form-popup .box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.form-popup .box input:focus ~ label,
+.form-popup .box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.btn{
+    padding: 10px;
+    margin: 15px 0;
+}
+.cancel{
+    padding: 10px 30px;
+    margin: 10px 10px 0 88px;
 }
