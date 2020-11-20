@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -30,50 +30,22 @@
     <h2 class="layoutTitle">
         Basic panels layout
     </h2>>
+    
+    <div class="form-popup" id="createGreeting">
+        <h3>Create Greeting</h3>
+        <form >
+            <div class="box">
+                <input type="text"required>
+                <label>Name</label>
+            </div>
 
-
-    <div class="form-popup1" id="createGreeting">
-        <form class="form-container">
-            <h3>Create Greeting</h3>
-
-            <label for="name"><b>Name:</b></label>
-            <input type="text" placeholder="Enter Name">
-
-            <label for="message"><b>Message:</b></label>
-            <input type="text" placeholder="Enter Message">
+            <div class="box">
+                <input type="text"required>
+                <label>Greeting</label>
+            </div>
 
             <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div>
-
-    <div class="form-popup2" id="editGreeting">
-        <form class="form-container">
-            <h3>Edit Greeting</h3>
-
-            <label for="GreetingID"><b>GreetingID:</b></label>
-            <input type="text" placeholder="Enter GreetingID" >
-
-            <label for="name"><b>Name:</b></label>
-            <input type="text" placeholder="Enter Name">
-
-            <label for="message"><b>Message:</b></label>
-            <input type="text" placeholder="Enter Message">
-
-            <button type="submit" class="btn" onclick="putGreeting()">Update Greeting</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div>
-
-    <div class="form-popup3" id="deleteGreeting">
-        <form class="form-container">
-            <h3>Delete Greeting</h3>
-
-            <label for="GreetingID"><b>GreetingID:</b></label>
-            <input type="text" placeholder="Enter GreetingID">
-
-            <button type="submit" onclick="deleteGreeting()" class="btn">Delete Greeting</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <button type="button" class="cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
 
