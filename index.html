@@ -1,57 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Greeting-App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Greeting</title>
 </head>
-
 <body>
-    <div class="sidebar">
-        <ul class="main">
-            <li><a onclick="getGreeting()"> <img src="./assets/list.png"> List</a></li>
-            <li><a onclick="createGreetingForm()"><img src="./assets/Add.png"> add</a></li>
-            <li><a onclick="editGreetingForm()"><img src="./assets/edit.png"> Edit</a></li>
-            <li><a onclick="deleteGreetingForm()"><img src="./assets/delete.png"> Delete</a></li>
-        </ul>
-    </div>
-    <header>
-        <div class="topbar">
-            <h3>Greeting-App </h3>
+
+        <div class="top-bar">
+            <h2>Greeting-App</h2>
+
             <ul>
-                <li><img src = "./assets/notification.png"></li>
-                <li><img src = "./assets/tools.png"></li>
-                <li><img src = "./assets/setting.png"></li>
-                <li>Sign In</li>
-                <li>Sign Up</li>
+                <li><img src="./assets/notification.png"></li>
+                <li><img src="./assets/message.png"></li>
+                <li><img src="./assets/setting.png"></li>
+                <li><img src="./assets/tools.png"></li>
+                <li class="signin">Signin</li>
+                <li class="signup">SignUp</li>
             </ul>
         </div>
-    </header>
-    <h2 class="layoutTitle">
-        Basic panels layout
-    </h2>>
-	<div class="posts-cards" id="postsCards"></div>
-    
-    <div class="form-popup" id="createGreeting">
-        <h3>Create Greeting</h3>
-        <form >
-            <div class="box">
-                <input type="text"required>
-                <label>Name</label>
-            </div>
 
-            <div class="box">
-                <input type="text"required>
-                <label>Greeting</label>
-            </div>
-
-            <button type="submit" class="btn" onclick="postGreeting()">Create Greeting</button>
-            <button type="button" class="cancel" onclick="closeForm()">Close</button>
-        </form>
+    <div class="side">
+        <ul>
+            <li><img src="./assets/list.png">List</li>
+            <li><img src="./assets/Add.png">Add</li>
+            <li><img src="./assets/edit.png">Edit</li>
+            <li><img src="./assets/delete.png">Delete</li>
+            <li><img src="./assets/edit.png">Edit</li>
+        </ul>
     </div>
-
-    <script src='./src/app.js'> </script>
-
 </body>
-
 </html>
