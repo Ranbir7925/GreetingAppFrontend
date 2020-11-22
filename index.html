@@ -7,28 +7,43 @@
     <title>Greeting</title>
 </head>
 <body>
-
-        <div class="top-bar">
-            <h2>Greeting-App</h2>
-
-            <ul>
-                <li><img src="./assets/notification.png"></li>
-                <li><img src="./assets/message.png"></li>
-                <li><img src="./assets/setting.png"></li>
-                <li><img src="./assets/tools.png"></li>
-                <li class="signin">Signin</li>
-                <li class="signup">SignUp</li>
-            </ul>
-        </div>
-
+    <div class="top-bar">
+        <h2>Greeting-App</h2>
+        <ul>
+            <li><img src="./assets/notification.png"></li>
+            <li><img src="./assets/message.png"></li>
+            <li><img src="./assets/setting.png"></li>
+            <li><img src="./assets/tools.png"></li>
+            <li class="signin">SignIn</li>
+            <li class="signup">SignUp</li>
+        </ul>
+    </div>
     <div class="side">
         <ul>
-            <li><img src="./assets/list.png">List</li>
-            <li><img src="./assets/Add.png">Add</li>
+            <li><img src="./assets/list.png">List</a></li>
+            <li><a onclick="create()"><img src="./assets/Add.png">Add</a></li>
             <li><img src="./assets/edit.png">Edit</li>
             <li><img src="./assets/delete.png">Delete</li>
             <li><img src="./assets/edit.png">Edit</li>
         </ul>
     </div>
+    <h1>Basic Layout</h1>
+    <div class="form-popup" id="createGreeting">
+        <h3>Create Greeting</h3>
+        <form >
+            <div class="box">
+                <input type="text"required>
+                <label>Name</label>
+            </div>
+            <div class="box">
+                <input type="text"required>
+                <label>Greeting</label>
+            </div>
+
+            <button type="submit" class="button" onclick="">Create Greeting</button>
+            <button type="button" class="cancel" onclick="closepopup()">Close</button>
+        </form>
+    </div>
+    <script src="src/app.js"></script>
 </body>
 </html>
