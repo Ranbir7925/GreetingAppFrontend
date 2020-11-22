@@ -1,150 +1,63 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.sidebar{
-    width: 6%;
-    height: 100%;
-    position: fixed;
-    background: lightgoldenrodyellow;
-    padding: 5px;
-}
-.sidebar ul{
-    float: left;
-    list-style-type: none ;
-    margin-top: 50px;
-    margin-left: 0px;
-}
-.sidebar ul li{
-    display: inline-flex;
-    margin: 2px;
-}
-.sidebar li a{
-    color: #000;
-    cursor: pointer;
-    padding: 5px 10px;
-    transition: 0.4s ease;
-}
-.sidebar li a:hover{
-    color: #ff5252;
-}
-.sidebar img{
-    width: 15px;
-    height: 15px;
+body{
+    background-color: seagreen;
 }
 
-.topbar{
-    background-color: lightgrey;
-    cursor: pointer;
-    text-align: left;
-    padding: 30px;
+.top-bar{
+    display: flex;
+    background-color: slateblue;
+
 }
-.topbar ul{
-    float: right;
-}
-.topbar li {
+ .top-bar h2{
+     margin-left: 220px;
+     float: left;
+ }
+  .top-bar ul{
+      margin-top: 23px;
+      float:right;
+      position: absolute;
+      right: 200px;
+  }
+
+  .top-bar li {
+     padding: 10px;
     display: inline;
-    padding: 10px;
-}
-.topbar h3{
-    float: left;
-    margin-left: 100px;
-}
-.layoutTitle{
-    margin-left: 130px;
-    margin-top: 15px;
-}
-.topbar img{
-    width: 20px;
-    height: 20px;
-}
 
-
-
-.posts-cards {
-    margin-left: 16%;
-    margin-right: 10%;
-  }
-  .card {
-    float: left;
-  }
-  .box1 {
-    margin-left: 8px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    padding: 15px;
-    line-height: 195%;
-    width: 230px;
-    height: 130px;
-    font-size: 13px;
-    border-radius: 15px;
-    font-family: "Times New Roman", Times, serif;
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #999;
-}
-
-    .box1:hover {
-      background-color: #eceff1;
   }
 
-.form-popup{
+  .top-bar li img{
+      height: 25px;
+      width: 25px;
+  }
+
+  .signin{
+      background-color: royalblue;
+      position: absolute;
+      bottom: 0;
+  }
+  .signup{
     position: absolute;
-    top: 50%;
-    bottom: 50%;
-    left: 50%;
-    width: 400px;
-    height: 350px;
-    padding: 40px;
-    transform: translate(-50%,-50%);
-    background-color: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    border-radius: 10px;
+    left: 302px;
+    bottom: 0px;
+    background-color: red;
 }
- .form-popup h3{
-     margin: 0 0 30px;
-     padding: 0;
-     color: rgb(48, 39, 39);
-     text-align: center;
- }
- .box{
-    position: relative;
- }
- .form-popup .box input{
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-}
-.form-popup .box label{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s;
-}
-.form-popup .box input:focus ~ label,
-.form-popup .box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
+.side{
+    height: 100%;
+    width: 180px;
+    padding: 20px;
+    background-color: sienna;
+    position: fixed;
 }
 
-.btn{
-    padding: 10px;
-    margin: 15px 0;
-}
-.cancel{
-    padding: 10px 30px;
-    margin: 10px 10px 0 88px;
-}
+ .side img{
+     padding-right: 10px;
+     height: 15px;
+     width: 15px;
+ }
+ .side ul{
+    align-items: center;
+    list-style-type: none;
+ }
+
+ .side li{
+     padding: 10px;
+ }
