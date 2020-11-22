@@ -1,3 +1,4 @@
+
 body{
     background-color: seagreen;
 }
@@ -8,7 +9,7 @@ body{
 
 }
  .top-bar h2{
-     margin-left: 220px;
+     margin-left: 225px;
      float: left;
  }
   .top-bar ul{
@@ -19,8 +20,9 @@ body{
   }
 
   .top-bar li {
-     padding: 10px;
-    display: inline;
+      cursor: pointer;
+      padding: 10px;
+      display: inline;
 
   }
 
@@ -30,16 +32,24 @@ body{
   }
 
   .signin{
-      background-color: royalblue;
+      cursor: pointer;
+      color: rgb(10, 176, 241);
       position: absolute;
       bottom: 0;
   }
   .signup{
+    cursor: pointer;
     position: absolute;
     left: 302px;
     bottom: 0px;
-    background-color: red;
+    background-color: blue;
+    color: rgb(5, 224, 253);
+    border-radius: 25px;
 }
+.signup:hover {
+    color: rgb(21, 199, 140);
+    background-color: #251155;
+  }
 .side{
     height: 100%;
     width: 180px;
@@ -59,5 +69,77 @@ body{
  }
 
  .side li{
+     cursor: pointer;
      padding: 10px;
  }
+ 
+ .side li:hover{
+    color: greenyellow;
+}
+ h1{
+  padding-left: 320px;   
+ }
+
+
+
+
+ .form-popup{
+    display: none;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+ .form-popup h3{
+     margin: 0 0 30px;
+     padding: 0;
+     color: rgb(48, 39, 39);
+     text-align: center;
+ }
+ .box{
+    position: relative;
+ }
+ .form-popup .box input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.form-popup .box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.form-popup .box input:focus ~ label,
+.form-popup .box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.button{
+    padding: 10px;
+    margin: 15px 0;
+}
+.cancel{
+    padding: 10px 30px;
+    margin: 10px 10px 0 88px;
+}
