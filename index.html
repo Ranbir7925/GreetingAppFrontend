@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Greeting</title>
 </head>
+
 <body>
-    <div class="top-bar">
+    <div class="top">
         <h2>Greeting-App</h2>
         <ul>
             <li><img src="./assets/notification.png"></li>
@@ -20,7 +22,7 @@
     </div>
     <div class="side">
         <ul>
-            <li><img src="./assets/list.png">List</a></li>
+            <li><a onclick="getGreeting()"></a><img src="./assets/list.png">List</a></li>
             <li><a onclick="create()"><img src="./assets/Add.png">Add</a></li>
             <li><img src="./assets/edit.png">Edit</li>
             <li><img src="./assets/delete.png">Delete</li>
@@ -28,15 +30,29 @@
         </ul>
     </div>
     <h1>Basic Layout</h1>
+
+
+    <div class="greeting-cards" id="gridCards">
+        <div class="card-box">
+            <div class="grid-box">
+                <p>Id=</p>
+                <p>Name</p>
+                <p>Mesaage</p>
+                <p>Created on</p>
+            </div>
+        </div>
+    </div>
+
+
     <div class="form-popup" id="createGreeting">
         <h3>Create Greeting</h3>
-        <form >
+        <form>
             <div class="box">
-                <input type="text"required>
+                <input type="text" required>
                 <label>Name</label>
             </div>
             <div class="box">
-                <input type="text"required>
+                <input type="text" required>
                 <label>Greeting</label>
             </div>
 
@@ -46,4 +62,5 @@
     </div>
     <script src="src/app.js"></script>
 </body>
+
 </html>
