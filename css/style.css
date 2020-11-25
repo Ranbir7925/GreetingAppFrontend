@@ -2,7 +2,9 @@
 body{
     background-color: seagreen;
 }
-
+/*
+ Syling for Top bar
+ */
 .top{
     display: flex;
     background-color: slateblue;
@@ -50,8 +52,10 @@ body{
     color: rgb(21, 199, 140);
     background-color: #251155;
   }
-
   
+/*
+ Syling for Side bar
+ */
 .side{
     height: 100%;
     width: 180px;
@@ -82,9 +86,9 @@ body{
   padding-left: 320px;   
  }
 
-
-
-
+ /*
+ Syling for form
+ */
  .form-popup{
     display: none;
     position: fixed;
@@ -146,10 +150,18 @@ body{
     margin: 10px 10px 0 88px;
 }
 
-
-
+/*
+ Syling for Greeting cards
+ */
+.card-box{
+    padding: 10px;
+}
 
 .greeting-cards {
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: 18%;
+    position: absolute;
     margin-left: 18%;
     position: absolute;
   }
