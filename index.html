@@ -22,27 +22,15 @@
     </div>
     <div class="side">
         <ul>
-            <li><a onclick="getGreeting()"></a><img src="./assets/list.png">List</a></li>
-            <li><a onclick="create()"><img src="./assets/Add.png">Add</a></li>
+            <li id="list"><span onclick="getGreetings()"><img src="./assets/list.png">List</span></li>
+            <li><span onclick="create()"><img src="./assets/Add.png">Add</span></li>
             <li><img src="./assets/edit.png">Edit</li>
             <li><img src="./assets/delete.png">Delete</li>
-            <li><img src="./assets/edit.png">Edit</li>
         </ul>
     </div>
     <h1>Basic Layout</h1>
 
-
-    <div class="greeting-cards" id="gridCards">
-        <div class="card-box">
-            <div class="grid-box">
-                <p>Id=</p>
-                <p>Name</p>
-                <p>Mesaage</p>
-                <p>Created on</p>
-            </div>
-        </div>
-    </div>
-
+    <div class="greeting-cards" id="gridCards"></div>
 
     <div class="form-popup" id="createGreeting">
         <h3>Create Greeting</h3>
@@ -56,11 +44,11 @@
                 <label>Greeting</label>
             </div>
 
-            <button type="submit" class="button" onclick="">Create Greeting</button>
+            <button type="button" class="button" onclick="">Create Greeting</button>
             <button type="button" class="cancel" onclick="closepopup()">Close</button>
         </form>
     </div>
-    <script src="src/app.js"></script>
+    <script src="/src/app.js"></script>
 </body>
 
 </html>
