@@ -110,7 +110,14 @@ body{
      text-align: center;
  }
  .box{
+    height: 38px;
     position: relative;
+ }
+ .error-box{
+     padding: 2px;
+     text-align: right;
+     color: transparent;
+     height: 20px;
  }
  .form-popup .box input{
     width: 100%;
@@ -162,8 +169,6 @@ body{
     display: flex;
     margin-left: 18%;
     position: absolute;
-    margin-left: 18%;
-    position: absolute;
   }
 
 .grid-box {
@@ -174,3 +179,20 @@ body{
     font-size: 15px;
     border-radius: 10px;
   }
+
+  .div-card1 img,img{
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      
+  }
+  .div-card1 {
+    left: 190px;
+    width: 7%;
+    position: relative;
+}
+.div-card2 {
+    position: relative;
+    left: 90%;
+    bottom: 12.5%;
+}
