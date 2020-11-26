@@ -36,15 +36,15 @@
         <h3>Create Greeting</h3>
         <form>
             <div class="box">
-                <input type="text" required>
+                <input type="text" autocomplete="off" required id="name">
                 <label>Name</label>
             </div>
             <div class="box">
-                <input type="text" required>
+                <input type="text" autocomplete="off" required id="message">
                 <label>Greeting</label>
             </div>
 
-            <button type="button" class="button" onclick="">Create Greeting</button>
+            <button type="button" class="button" onclick="addGreeting()">Create Greeting</button>
             <button type="button" class="cancel" onclick="closepopup()">Close</button>
         </form>
     </div>
