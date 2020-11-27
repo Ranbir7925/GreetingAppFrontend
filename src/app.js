@@ -6,6 +6,10 @@ create = () => {
 };
 closepopup = () => {
   document.getElementById("createGreeting").style.display = "none";
+  location.reload()
+};
+closegrid = () => {
+  document.getElementById("gridCards").style.display = "none";
 };
 
 renderCards = (posts) => {
@@ -16,8 +20,8 @@ renderCards = (posts) => {
         <p>Id=${post._id}</p>
         <p>Name=${post.name}</p>
         <p>Mesaage=${post.greeting}</p>
-        <div class='div-card1'><img src="./assets/edit.png" onclick="edit(post._id)"></div>
-        <div class='div-card2'><img src="./assets/delete.png" onclick="deleteGreeting(${post._id})"></div>
+        <div class='div-card1'><img src="./assets/edit.png" onclick="editPopup()"></div>
+        <div class='div-card2'><img src="./assets/delete.png" onclick="deletePopup()"></div>
     </div>
 </div>`;
   });
@@ -36,7 +40,6 @@ getGreetings = () => {
 };
 
 addGreeting = () => {
-
   name = document.getElementById("name").value
   greeting = document.getElementById("greeting").value
 
@@ -48,37 +51,53 @@ addGreeting = () => {
     document.getElementById("invalid-message").style.cssText +=
       "color: #d02525";
   }
-  if (regexValidation.test(name)&&regexValidation.test(name)) {
-  let params = {
-    method: 'POST',
-    headers: { "Content-type": "application/json" },
-    body: JSON.stringify({
-      name: name,
-      greeting: greeting
-    })
-  }
-  fetch(url, params)
-    .then(() => {
-      alert("Data Added Successfully")
-    })
-    .catch(err => alert(err))
-  closepopup()
-  location.reload();
-};
+  if (regexValidation.test(name) && regexValidation.test(name)) {
+    let params = {
+      method: 'POST',
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        greeting: greeting
+      })
+    }
+    fetch(url, params)
+      .then(() => {
+        alert("Data Added Successfully")
+      })
+      .catch(err => alert(err))
+    closepopup()
+    location.reload();
+  };
 }
 
 deleteGreeting = (id) => {
   let params = {
     method: 'DELETE'
   }
-  fetch(`url+${id}`,params)
-  .then(()=>{
-    alert("Greeting deleted Successfully")
-    getGreetings()
-  })
-  .catch(err => alert(err))
+  fetch(`url+${id}`, params)
+    .then(() => {
+      alert("Greeting deleted Successfully")
+      getGreetings()
+    })
+    .catch(err => alert(err))
 };
 
-edit = (id) =>{
-  console.log("edit function",id);
+deletePopup = () => {
+  console.log("edit function");
+  closegrid()
+  output =`
+    <div class="deleteBoxConformation">
+    <p>Do you want to delete this greeting? </p>
+    <button type="button" class="delete-button1"onclick="deleteGreeting">Delete</button>
+    <button type="button" class="delete-button2" onclick="closeDeletePopup()">Cancle</button>
+    </div>`
+document.getElementById('deleteWindow').innerHTML = output
 }
+
+closeDeletePopup = () =>{
+  document.getElementById("deleteWindow").style.display ="none";
+  location.reload();
+};
+
+
+
