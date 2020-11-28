@@ -23,40 +23,15 @@
     <div class="side">
         <ul>
             <li id="list"><span onclick="getGreetings()"><img src="./assets/list.png">List</span></li>
-            <li><span onclick="create()"><img src="./assets/Add.png">Add</span></li>
+            <li><span onclick="addGreetingPopup()"><img src="./assets/Add.png">Add</span></li>
             <li><img src="./assets/edit.png">Edit</li>
             <li><img src="./assets/delete.png">Delete</li>
         </ul>
     </div>
     <h1>Basic Layout</h1>
-
     <div class="greeting-cards" id="gridCards"></div>
-
-    <div class="form-popup" id="createGreeting">
-        <h3>Create Greeting</h3>
-        <form>
-            <div class="box">
-                <input type="text" autocomplete="off" required id="name">
-                <label>Name</label>
-            </div>
-            <div class="error-box" id="invalid-name">
-                * Invalid atlest 3 characters
-            </div>
-            <div class="box">
-                <input type="text" autocomplete="off" required id="greeting">
-                <label>Greeting</label>
-            </div>
-            <div class="error-box" id="invalid-message">
-                * Invalid atlest 3 characters
-            </div>
-
-            <button type="button" class="button" onclick="addGreeting()">Create Greeting</button>
-            <button type="button" class="cancel" onclick="closepopup()">Close</button>
-        </form>
-    </div>
+    <div class="form-popup" id="formpoup"></div>
     <div class=deletePopup id="deleteWindow"></div>
-
-    
     <script src="/src/app.js"></script>
 </body>
 

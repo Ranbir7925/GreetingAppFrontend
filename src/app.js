@@ -1,11 +1,8 @@
 const url = 'http://localhost:4000/greeting'
 let regexValidation = new RegExp(/^[A-Za-z]{3,}$/);
-create = () => {
-  document.getElementById("createGreeting").style.display = "block";
-  document.getElementById("gridCards").style.display = "none";
-};
+
 closepopup = () => {
-  document.getElementById("createGreeting").style.display = "none";
+  document.getElementById("formpoup").style.display = "none";
   location.reload()
 };
 closegrid = () => {
@@ -17,15 +14,19 @@ renderCards = (posts) => {
   posts.forEach((post) => {
     output += `<div class="card-box">
     <div class="grid-box">
-        <p>Id=${post._id}</p>
-        <p>Name=${post.name}</p>
-        <p>Mesaage=${post.greeting}</p>
+        <div class="data">
+          <span>${post.name}</span>
+        </div>
+        <div class="data">
+          <span>${post.greeting}</span>
+        </div>
         <div class='div-card1'><img src="./assets/edit.png" onclick="editPopup()"></div>
-        <div class='div-card2'><img src="./assets/delete.png" onclick="deletePopup()"></div>
+        <div class='div-card2'><img src="./assets/delete.png" onclick="deletePopup('${post._id}')"></div>
     </div>
 </div>`;
   });
   document.getElementById('gridCards').innerHTML = output
+  
 };
 
 
@@ -38,6 +39,36 @@ getGreetings = () => {
       location.reload()
     })
 };
+
+
+
+
+addGreetingPopup = () => {
+  closegrid()
+  document.getElementById("formpoup").style.display = "block";
+  output =
+    `<h2>Create Greeting</h2>
+        <form>
+            <div class="box">
+                <input type="text" autocomplete="off" required id="name">
+                <label>Name</label>
+            </div>
+            <div class="error-box" id="invalid-name">
+                * Invalid atlest 3 characters
+            </div>
+            <div class="box">
+                <input type="text" autocomplete="off" required id="greeting">
+                <label>Greeting</label>
+            </div>
+            <div class="error-box" id="invalid-message">
+                * Invalid atlest 3 characters
+            </div>
+
+            <button type="button" class="button" onclick="addGreeting()">Save Greeting</button>
+            <button type="button" class="cancel" onclick="closepopup()">Close</button>
+        </form>`
+  document.getElementById('formpoup').innerHTML = output
+}
 
 addGreeting = () => {
   name = document.getElementById("name").value
@@ -75,29 +106,55 @@ deleteGreeting = (id) => {
     method: 'DELETE'
   }
   fetch(`url+${id}`, params)
-    .then(() => {
+    .then((res) => {
+      console.log(res)
       alert("Greeting deleted Successfully")
       getGreetings()
     })
     .catch(err => alert(err))
 };
 
-deletePopup = () => {
-  console.log("edit function");
+deletePopup = (id) => {
+  console.log(id);
   closegrid()
-  output =`
+  output = `
     <div class="deleteBoxConformation">
     <p>Do you want to delete this greeting? </p>
-    <button type="button" class="delete-button1"onclick="deleteGreeting">Delete</button>
+    <button type="button" class="delete-button1"onclick="deleteGreeting('${id}')">Delete</button>
     <button type="button" class="delete-button2" onclick="closeDeletePopup()">Cancle</button>
     </div>`
-document.getElementById('deleteWindow').innerHTML = output
+  document.getElementById('deleteWindow').innerHTML = output
 }
 
-closeDeletePopup = () =>{
-  document.getElementById("deleteWindow").style.display ="none";
+closeDeletePopup = () => {
+  document.getElementById("deleteWindow").style.display = "none";
   location.reload();
 };
 
+editPopup = () => {
+  closegrid()
+  document.getElementById("formpoup").style.display = "block";
+  output =
+    `<h2>Edit Greeting</h2>
+        <form>
+            <div class="box">
+                <input type="text" autocomplete="off" required id="name">
+                <label>Name</label>
+            </div>
+            <div class="error-box" id="invalid-name">
+                * Invalid atlest 3 characters
+            </div>
+            <div class="box">
+                <input type="text" autocomplete="off" required id="greeting">
+                <label>Greeting</label>
+            </div>
+            <div class="error-box" id="invalid-message">
+                * Invalid atlest 3 characters
+            </div>
 
+            <button type="button" class="button" onclick="addGreeting()">Update Greeting</button>
+            <button type="button" class="cancel" onclick="closepopup()">Close</button>
+        </form>`
+  document.getElementById('formpoup').innerHTML = output
+}
 

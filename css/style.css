@@ -1,13 +1,14 @@
 
-body{
-    background-color: seagreen;
-}
 /*
  Syling for Top bar
  */
 .top{
+    position: sticky !important;
+    margin: -8px;
+    height: 65px;
     display: flex;
-    background-color: slateblue;
+    background-color:#e2e2e2;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.6);
 
 }
  .top h2{
@@ -57,10 +58,11 @@ body{
  Syling for Side bar
  */
 .side{
+    margin: -8px;
     height: 100%;
     width: 180px;
     padding: 20px;
-    background-color: sienna;
+    background-color: #e2e2e2;
     position: fixed;
 }
 
@@ -70,20 +72,23 @@ body{
      width: 15px;
  }
  .side ul{
+    padding-top: 35px;
     align-items: center;
     list-style-type: none;
  }
 
  .side li{
+    font-size: 20px;
      cursor: pointer;
      padding: 10px;
  }
  
  .side li:hover{
-    color: greenyellow;
+    color: rgb(37, 66, 231);
 }
  h1{
-  padding-left: 320px;   
+    position: sticky !important;
+    padding-left: 320px;   
  }
 
  /*
@@ -154,7 +159,7 @@ body{
 }
 .cancel{
     padding: 10px 30px;
-    margin: 10px 10px 0 88px;
+    margin-left:  88px;
 }
 
 /*
@@ -171,12 +176,21 @@ body{
     position: absolute;
   }
 
+.data{
+    font-family: "Comic Sans MS";
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 14px;
+ }
 .grid-box {
-    background-color: burlywood;
+    background-color: #d8d5d2;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.6);
+    margin-left: 45px;
+    margin-top: 25px;
     padding: 10px;
     width: 250px;
     height: 150px;
-    font-size: 15px;
+    font-size: 22px;
     border-radius: 10px;
   }
 
@@ -194,5 +208,33 @@ body{
 .div-card2 {
     position: relative;
     left: 90%;
-    bottom: 12.5%;
+    bottom: 17.5%;
+}
+.deleteBoxConformation{
+    margin-left: 40%;
+    margin-top: 10%;
+    background-color: #d8d5d2;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.6);
+    padding: 15px;
+    width: 350px;
+    height: 242px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+.deleteBoxConformation p{
+    font-size: 20px;
+    padding-top: 10%;
+    text-align: center;
+}
+.delete-button1{
+    margin-left: 5%;
+    position: relative;
+    top: 35%;
+    padding: 10px;
+}
+.delete-button2{
+    margin-left: 50%;
+    position: relative;
+    top: 35%;
+    padding: 10px;
 }
