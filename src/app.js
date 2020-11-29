@@ -1,4 +1,4 @@
-const url = 'http://localhost:4000/greeting'
+const url = 'http://localhost:4000/greeting/'
 let regexValidation = new RegExp(/^[A-Za-z]{3,}$/);
 
 closepopup = () => {
@@ -9,6 +9,10 @@ closegrid = () => {
   document.getElementById("gridCards").style.display = "none";
 };
 
+
+handelModal = (style) => {
+  document.querySelector(".modal").style.display = style
+}
 renderCards = (posts) => {
   let output = "";
   posts.forEach((post) => {
@@ -97,7 +101,6 @@ addGreeting = () => {
       })
       .catch(err => alert(err))
     closepopup()
-    location.reload();
   };
 }
 
@@ -105,18 +108,19 @@ deleteGreeting = (id) => {
   let params = {
     method: 'DELETE'
   }
-  fetch(`url+${id}`, params)
+  fetch(`${url}${id}`, params)
     .then((res) => {
       console.log(res)
-      alert("Greeting deleted Successfully")
+      closeDeletePopup()
       getGreetings()
+      alert("Greeting deleted Successfully")
+      
     })
     .catch(err => alert(err))
 };
 
 deletePopup = (id) => {
-  console.log(id);
-  closegrid()
+handelModal("block")
   output = `
     <div class="deleteBoxConformation">
     <p>Do you want to delete this greeting? </p>
@@ -127,12 +131,13 @@ deletePopup = (id) => {
 }
 
 closeDeletePopup = () => {
-  document.getElementById("deleteWindow").style.display = "none";
-  location.reload();
+  handelModal("none")
+  // document.getElementById("deleteWindow").style.display = "none";
+  document.querySelector(".deleteBoxConformation").remove()
+
 };
 
 editPopup = () => {
-  closegrid()
   document.getElementById("formpoup").style.display = "block";
   output =
     `<h2>Edit Greeting</h2>
