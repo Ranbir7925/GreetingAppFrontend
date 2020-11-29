@@ -4,6 +4,7 @@ let regexValidation = new RegExp(/^[A-Za-z]{3,}$/);
 handelModal = (style) => {
   document.querySelector(".modal").style.display = style
 }
+
 renderCards = (posts) => {
   let output = "";
   posts.forEach((post) => {
@@ -20,7 +21,7 @@ renderCards = (posts) => {
     </div>
 </div>`;
   });
-  document.getElementById('gridCards').innerHTML = output
+  document.querySelector('.greeting-cards').innerHTML = output
 };
 
 
@@ -33,7 +34,7 @@ getGreetings = () => {
 
 addGreetingPopup = () => {
   handelModal("block")
-  output =`<div class="popup">
+  output = `<div class="popup">
     <h2>Create Greeting</h2>
         <form>
             <div class="box">
@@ -59,19 +60,19 @@ addGreetingPopup = () => {
 }
 
 addGreeting = () => {
-  name = document.getElementById("name").value
-  greeting = document.getElementById("greeting").value
+  name = document.querySelector("#name").value
+  greeting = document.querySelector("#greeting").value
 
   if (!regexValidation.test(name)) {
-    document.getElementById("invalid-name").style.cssText +=
+    document.querySelector("#invalid-name").style.cssText +=
       "color: #d02525";
   }
   if (!regexValidation.test(greeting)) {
-    document.getElementById("invalid-message").style.cssText +=
+    document.querySelector("#invalid-message").style.cssText +=
       "color: #d02525";
   }
   if (regexValidation.test(name) && regexValidation.test(name)) {
-    let params = {
+    let parameters = {
       method: 'POST',
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -79,31 +80,31 @@ addGreeting = () => {
         greeting: greeting
       })
     }
-    fetch(url, params)
+    fetch(url, parameters)
       .then(() => {
         closePopup()
         alert("Greeting Added Successfully")
+        getGreetings()
       })
-      .catch(err => alert(err))
+      .catch(() => alert("Error occcured while adding greeting try again..!!"))
     closePopup()
   }
 };
 
 closePopup = () => {
   handelModal("none")
-  if(document.querySelector(".popup"))
-  document.querySelector(".popup").remove()
+  if (document.querySelector(".popup"))
+    document.querySelector(".popup").remove()
 };
 
 
-editPopup = (id,name,greeting) => {
-  console.log(id,name,greeting);
+editPopup = (id, name, greeting) => {
   handelModal("block")
-  output =`<div class="popup">
+  output = `<div class="popup">
     <h2>Edit Greeting</h2>
         <form>
             <div class="box">
-                <input type="text" value="${name}"autocomplete="off" required id="name">
+                <input type="text" value="${name}" autocomplete="off" required id="name">
                 <label>Name</label>
             </div>
             <div class="error-box" id="invalid-name">
@@ -125,15 +126,15 @@ editPopup = (id,name,greeting) => {
 }
 
 editGreeting = (id) => {
-  name = document.getElementById("name").value
-  greeting = document.getElementById("greeting").value
+  name = document.querySelector("#name").value
+  greeting = document.querySelector("#greeting").value
 
   if (!regexValidation.test(name)) {
-    document.getElementById("invalid-name").style.cssText +=
+    document.querySelector("#invalid-name").style.cssText +=
       "color: #d02525";
   }
   if (!regexValidation.test(greeting)) {
-    document.getElementById("invalid-message").style.cssText +=
+    document.querySelector("#invalid-message").style.cssText +=
       "color: #d02525";
   }
   if (regexValidation.test(name) && regexValidation.test(name)) {
@@ -149,23 +150,24 @@ editGreeting = (id) => {
       .then(() => {
         closePopup()
         alert("Greeting updated Successfully")
+        getGreetings()
       })
-      .catch(err => alert(err))
+      .catch(() => alert("Error occcured while updating greeting try again..!!"))
     closePopup()
   }
 };
 
 deleteGreeting = (id) => {
-  let params = {
+  let parameters = {
     method: 'DELETE'
   }
-  fetch(`${url}${id}`, params)
+  fetch(`${url}${id}`, parameters)
     .then(() => {
       closeDeletePopup()
       getGreetings()
       alert("Greeting deleted Successfully")
     })
-    .catch(err => alert(err))
+    .catch(() => alert("Error occcured while updating greeting try again..!!"))
 };
 
 deletePopup = (id) => {
