@@ -8,6 +8,8 @@ handelModal = (style) => {
 renderCards = (posts) => {
   let output = "";
   posts.forEach((post) => {
+    let date =
+      post.createdAt.split("T")[0];
     output += `<div class="card-box">
     <div class="grid-box">
         <div class="data">
@@ -16,7 +18,10 @@ renderCards = (posts) => {
         <div class="data">
           <span>${post.greeting}</span>
         </div>
-        <div class='div-card1'><img src="./assets/edit.png" onclick="editPopup('${post._id}','${post.name}','${post.greeting}')"></div>
+        <div class="data">
+          <span>${date}</span>
+        </div>
+        <div class='div-card1'><img src="./assets/edit.png" onclick="editPopup('${post._id},'${post.name}','${post.greeting}')"></div>
         <div class='div-card2'><img src="./assets/delete.png" onclick="deletePopup('${post._id}')"></div>
     </div>
 </div>`;
@@ -52,7 +57,7 @@ addGreetingPopup = () => {
                 * Invalid atlest 3 characters
             </div>
 
-            <button type="button" class="button" onclick="addGreeting()">Save Greeting</button>
+            <button type="button" class="button" onclick="addGreeting()">Save</button>
             <button type="button" class="cancel" onclick="closePopup()">Close</button>
         </form>
         </div>`
@@ -118,7 +123,7 @@ editPopup = (id, name, greeting) => {
                 * Invalid atlest 3 characters
             </div>
 
-            <button type="button" class="button" onclick="editGreeting('${id}')">Update Greeting</button>
+            <button type="button" class="button" onclick="editGreeting('${id}')">Save</button>
             <button type="button" class="cancel" onclick="closePopup()">Close</button>
         </form>
         </div>`
@@ -126,48 +131,62 @@ editPopup = (id, name, greeting) => {
 }
 
 editGreeting = (id) => {
-  name = document.querySelector("#name").value
-  greeting = document.querySelector("#greeting").value
-
-  if (!regexValidation.test(name)) {
-    document.querySelector("#invalid-name").style.cssText +=
-      "color: #d02525";
-  }
-  if (!regexValidation.test(greeting)) {
-    document.querySelector("#invalid-message").style.cssText +=
-      "color: #d02525";
-  }
-  if (regexValidation.test(name) && regexValidation.test(name)) {
-    let params = {
-      method: 'PUT',
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        greeting: greeting
-      })
-    }
-    fetch(`${url}${id}`, params)
-      .then(() => {
-        closePopup()
-        alert("Greeting updated Successfully")
-        getGreetings()
-      })
-      .catch(() => alert("Error occcured while updating greeting try again..!!"))
+  if (id == 'undefined') {
+    alert('Id cant be undefined')
     closePopup()
+    getGreetings()
+  }
+  else {
+    name = document.querySelector("#name").value
+    greeting = document.querySelector("#greeting").value
+
+    if (!regexValidation.test(name)) {
+      document.querySelector("#invalid-name").style.cssText +=
+        "color: #d02525";
+    }
+    if (!regexValidation.test(greeting)) {
+      document.querySelector("#invalid-message").style.cssText +=
+        "color: #d02525";
+    }
+    if (regexValidation.test(name) && regexValidation.test(name)) {
+      let parameters = {
+        method: 'PUT',
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          greeting: greeting
+        })
+      }
+      fetch(`${url}${id}`, parameters)
+        .then(() => {
+          alert("Greeting updated Successfully")
+          closePopup()
+          getGreetings()
+        })
+        .catch(() => alert("Error occcured while updating greeting try again..!!"))
+      closePopup()
+    }
   }
 };
 
 deleteGreeting = (id) => {
-  let parameters = {
-    method: 'DELETE'
+  if (id == 'undefined') {
+    alert('Id cant be undefined')
+    closeDeletePopup()
+    getGreetings()
   }
-  fetch(`${url}${id}`, parameters)
-    .then(() => {
-      closeDeletePopup()
-      getGreetings()
-      alert("Greeting deleted Successfully")
-    })
-    .catch(() => alert("Error occcured while updating greeting try again..!!"))
+  else {
+    let parameters = {
+      method: 'DELETE'
+    }
+    fetch(`${url}${id}`, parameters)
+      .then(() => {
+        alert("Greeting deleted Successfully")
+        closeDeletePopup()
+        getGreetings()
+      })
+      .catch(() => alert("Error occcured while updating greeting try again..!!"))
+  }
 };
 
 deletePopup = (id) => {
